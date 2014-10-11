@@ -63,3 +63,12 @@
 	// $Group->add_column(""); // Itinerary (Events)
 	$Group->create_table();
 ?>
+<html>
+	<head>
+		<title>Schema</title>
+	</head>
+	<body>
+		<h1>Something</h1>
+		<p><?php echo($Event); ?></p>
+	</body>
+</html>
