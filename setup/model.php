@@ -42,17 +42,20 @@
 
 			// Create query
 			$query = "CREATE TABLE $this->title (";
+			
 			foreach ($this->columns as $key => $val)
 			{
 				$query .= "$key $val, ";
 			}
+			
 			if (count($this->columns) > 0)
 			{
 				$len = strlen($query);
 				$query[$len - 2] = ")";
 				$query[$len - 1] = ";";
 			}
-			else {
+			else 
+			{
 				$query .= ");";
 			}
 
