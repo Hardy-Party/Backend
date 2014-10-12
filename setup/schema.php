@@ -22,7 +22,7 @@
 	$User->add_column("last_active", "DATETIME");
 	// $User->add_column(); // Events posted
 	// $User->add_column(); // Groups
-	// $User->add_column(); // Location
+	$User->add_column("location", "SET('lat', 'long')");
 	$User->create_table();
 
 	// Define Tag table
@@ -39,8 +39,8 @@
 	$Event->add_column("description", "VARCHAR(256) NOT NULL");
 	$Event->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
 	$Event->add_column("time", "DATETIME NOT NULL");
-	// $Event->add_column(""); // Location
-	// $Event->add_column(""); // Type
+	$Event->add_column("location", "SET('lat', 'long')");
+	$Event->add_column("type", "enum('Frat/Sority', 'Club', 'Bar', 'Private', 'Pregame', 'Performance')");
 	// $Event->add_column(""); // Tag
 	$Event->add_column("min_price", "INT");
 	$Event->add_column("max_price", "INT");
@@ -52,7 +52,7 @@
 	// Define Group table
 	$Group = new model("Social_Group");
 	$Group->add_column("group_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
-	// $Group->add_column("creator", "") // Group creator
+	$Group->add_column("creator", "FOREIGN KEY REFERENCES (User.user_id)");
 	$Group->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
 	$Group->add_column("last_active", "DATETIME");
 	// $Group->add_column(""); // Users in group
