@@ -62,6 +62,9 @@
 			print(nl2br($query . "\n"));
 
 			$result = mysql_query("SELECT * FROM $this->title;", $con);
+
+			print(nl2br("result = $result\n"));
+
 			if ($result)
 			{
 				// Delete existing tables by this name
