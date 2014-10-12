@@ -30,8 +30,8 @@
 	// Define Tag table
 	$Tag = new model("Tag");
 	$Tag->add_column("tag_id", "INT NOT NULL AUTO_INCREMENT");
-	$Tag->add_column("PRIMARY KEY", "(tag_id)");
-	$Tag->add_column("val", "VARCHAR(32)");
+	// $Tag->add_column("PRIMARY KEY", "(tag_id)");
+	// $Tag->add_column("val", "VARCHAR(32)");
 	$Tag->create_table();
 
 
