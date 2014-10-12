@@ -61,7 +61,8 @@
 
 			print(nl2br($query . "\n"));
 
-			$result = mysql_query("SELECT * FROM $this->title", $con) or die(mysql_error());
+			$result = mysql_query("SELECT * FROM somethingthatdoesntexist", $con) or die(mysql_error());
+			echo $result;
 
 			// Execute command
 			mysql_query($query, $con) or die(mysql_error());
