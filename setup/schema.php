@@ -50,7 +50,7 @@
 	$Event->create_table();
 
 	// Define Group table
-	$Group = new model("Group");
+	$Group = new model("Social_Group");
 	$Group->add_column("group_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	// $Group->add_column("creator", "") // Group creator
 	$Group->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
