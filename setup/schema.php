@@ -12,7 +12,7 @@
 
 	// Define User table
 	$User = new model("User");
-	$User->add_column("PRIMARY KEY user_id", "INT NOT NULL AUTO_INCREMENT");
+	$User->add_column("user_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	// $User->add_column("PRIMARY KEY", "(user_id)");
 	// $User->add_column("first_name", "VARCHAR(64) NOT NULL");
 	// $User->add_column("last_name", "VARCHAR(64) NOT NULL");
@@ -29,7 +29,7 @@
 
 	// Define Tag table
 	$Tag = new model("Tag");
-	$Tag->add_column("PRIMARY KEY tag_id", "INT NOT NULL AUTO_INCREMENT");
+	$Tag->add_column("tag_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	// $Tag->add_column("PRIMARY KEY", "(tag_id)");
 	// $Tag->add_column("val", "VARCHAR(32)");
 	$Tag->create_table();
@@ -37,7 +37,7 @@
 
 	// Define Event table
 	$Event = new model("Event");
-	$Event->add_column("PRIMARY KEY event_id", "INT NOT NULL AUTO_INCREMENT");
+	$Event->add_column("event_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	// $Event->add_column("PRIMARY KEY", "(event_id)");
 	// $Event->add_column("title", "VARCHAR(64) NOT NULL");
 	// $Event->add_column("description", "VARCHAR(256) NOT NULL");
@@ -58,7 +58,7 @@
 
 	// Define Group table
 	$Group = new model("Group");
-	$Group->add_column("PRIMARY KEY group_id", "INT NOT NULL AUTO_INCREMENT");
+	$Group->add_column("group_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	// $Group->add_column("PRIMARY KEY", "(group_id)");
 
 	// $Group->add_column("creator", "") // Group creator
