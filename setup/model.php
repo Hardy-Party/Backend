@@ -63,12 +63,9 @@
 
 			$result = mysql_query("SELECT * FROM $this->title;", $con);
 
-			print(nl2br("result = $result\n"));
-
 			if ($result)
 			{
 				// Delete existing tables by this name
-				echo nl2br("DROP TABLE $this->title;\n");
 				mysql_query("DROP TABLE $this->title;", $con) or die(mysql_eror());
 			}
 

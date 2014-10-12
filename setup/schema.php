@@ -25,15 +25,11 @@
 	$User->add_column("location", "SET('lat', 'long')");
 	$User->create_table();
 
-	echo nl2br("Made it after User\n");
-
 	// Define Tag table
 	$Tag = new model("Tag");
 	$Tag->add_column("tag_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	$Tag->add_column("val", "VARCHAR(32)");
 	$Tag->create_table();
-
-	echo nl2br("Past Tag");
 
 	// Define Event table
 	$Event = new model("Event");
@@ -52,13 +48,11 @@
 	// $Event->add_column("attendees", ); // People who have RSVPed
 	$Event->create_table();
 
-	echo nl2br("Past Event");
-
 	// Define Group table
 	$Group = new model("Social_Group");
 	$Group->add_column("group_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	$Group->add_column("creator", "INT NOT NULL");
-	$Group->add_column("FOREIGN KEY (creator)", "REFERENCES User(user_id) ON DELETE SET NULL");
+	$Group->add_column("FOREIGN KEY (creator)", "REFERENCES User(user_id)");
 	$Group->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
 	$Group->add_column("last_active", "DATETIME");
 	// $Group->add_column(""); // Users in group
