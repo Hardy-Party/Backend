@@ -31,7 +31,7 @@
 		function create_table() 
 		{
 			// Import database connection
-			require_once("../db_config.php");
+			require_once("../config.php");
 
 			// Establish connection as root
 			// Connect to mysql database
