@@ -63,12 +63,6 @@
 
 			// Execute command
 			mysql_query($query, $con) or die(mysql_error());
-			// $result = mysql_query($query, $con);
-			// if (!$result)
-			// {
-			// 	// TODO: Replace this with print to log file
-			// 	print(nl2br("Could not create table\n"));
-			// }
 		}
 	}
 ?>
