@@ -16,14 +16,14 @@
 		// Constructor. Takes a name of the model as input
 		function __construct($name)
 		{
-			$title = $name;
+			$this->title = $name;
 		}
 
 		// Add column to table. $field is the name for the column and 
 		// $type is the mysql datatype (both should be strings)
 		function add_column($field, $type)
 		{
-			$columns[$field] = $type;
+			$this->columns[$field] = $type;
 		}
 
 		// Create table in database.
@@ -31,7 +31,7 @@
 		function create_table() 
 		{
 			// Import database connection
-			require_once "db_config.php";
+			require_once("../db_config.php");
 
 			// Establish connection as root
 			// Connect to mysql database
@@ -42,11 +42,21 @@
 
 			// Create query
 			$query = "CREATE TABLE $title (";
-			foreach ($columns as $key => $val)
+			foreach ($this->columns as $key => $val)
 			{
 				$query .= "$key $val, ";
 			}
-			$query .= ");";
+			if (count($this->columns) > 0)
+			{
+				$len = strlen($query);
+				$query[$len - 2] = ")";
+				$query[$len - 1] = ";";
+			}
+			else {
+				$query .= ");";
+			}
+
+			echo $query;
 
 			// Execute command
 			$result = mysql_query($query, $con);

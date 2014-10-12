@@ -8,7 +8,7 @@
 	 * but IT SHOULD BE NOTED THAT RUNNING THIS SCRIPT WILL DELETE ANY
 	 * DATA IN THE DATABASE!!!!!
 	 ********************************************************************/
-	require_once __DIR__ . '/model.php';
+	require_once("model.php");
 
 	// Define User table
 	$User = new model("User");
