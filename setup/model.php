@@ -41,7 +41,7 @@
 			$db = mysql_select_db(DB_DATABASE, $con) or die(mysql_error()) or die(mysql_error());
 
 			// Create query
-			$query = "CREATE TABLE $title (";
+			$query = "CREATE TABLE $this->title (";
 			foreach ($this->columns as $key => $val)
 			{
 				$query .= "$key $val, ";
