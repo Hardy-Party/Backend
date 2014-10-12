@@ -58,7 +58,7 @@
 	$Group = new model("Social_Group");
 	$Group->add_column("group_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
 	$Group->add_column("creator", "INT NOT NULL");
-	$Group->add_column("FOREIGN KEY (creator)", "REFERENCES User(user_id) ON DELETE CASCADE");
+	$Group->add_column("FOREIGN KEY (creator)", "REFERENCES User(user_id) ON DELETE SET NULL");
 	$Group->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
 	$Group->add_column("last_active", "DATETIME");
 	// $Group->add_column(""); // Users in group
