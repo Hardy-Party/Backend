@@ -56,14 +56,14 @@
 				$query .= ");";
 			}
 
-			echo $query . "\n";
+			echo $query . "\xA";
 
 			// Execute command
 			$result = mysql_query($query, $con);
 			if (!$result)
 			{
 				// TODO: Replace this with print to log file
-				echo "Could not create table\n";
+				echo "Could not create table\xA";
 			}
 		}
 	}
