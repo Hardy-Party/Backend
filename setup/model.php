@@ -61,9 +61,10 @@
 
 			print(nl2br($query . "\n"));
 
-			$result = mysql_query("SELECT * FROM somethingthatdoesntexist", $con) or die(mysql_error());
+			$result = mysql_query("SELECT * FROM somethingthatdoesntexist", $con);
 			echo $result;
 
+			die(sql_error());
 			// Execute command
 			mysql_query($query, $con) or die(mysql_error());
 		}
