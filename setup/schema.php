@@ -52,7 +52,7 @@
 	// Define Group table
 	$Group = new model("Social_Group");
 	$Group->add_column("group_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
-	$Group->add_column("creator", "FOREIGN KEY REFERENCES (User.user_id)");
+	$Group->add_column("creator", "INT NOT NULL FOREIGN KEY REFERENCES (User.user_id)");
 	$Group->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
 	$Group->add_column("last_active", "DATETIME");
 	// $Group->add_column(""); // Users in group
