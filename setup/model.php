@@ -65,8 +65,15 @@
 
 			if ($result)
 			{
-				// Delete existing tables by this name
-				mysql_query("DROP TABLE $this->title;", $con) or die(mysql_eror());
+				try 
+				{
+					// Delete existing tables by this name
+					mysql_query("DROP TABLE $this->title;", $con) or die(mysql_eror());
+				} 
+				catch (Exception $e)
+				{
+					echo nl2br("$e->getMessage\n");
+				}
 			}
 
 			// Execute command
