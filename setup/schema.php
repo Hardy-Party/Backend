@@ -69,6 +69,6 @@
 	</head>
 	<body>
 		<h1>Something</h1>
-		<p><?php echo($Event); ?></p>
+		<p><?php echo("something else"); ?></p>
 	</body>
 </html>

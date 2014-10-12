@@ -56,14 +56,14 @@
 				$query .= ");";
 			}
 
-			echo $query . PHP_EOL;
+			echo $query, PHP_EOL;
 
 			// Execute command
 			$result = mysql_query($query, $con);
 			if (!$result)
 			{
 				// TODO: Replace this with print to log file
-				echo "Could not create table" . PHP_EOL;
+				echo "Could not create table", PHP_EOL;
 			}
 		}
 	}
