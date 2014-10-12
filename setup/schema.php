@@ -20,7 +20,7 @@
 	$User->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
 	$User->add_column("birthday", "DATETIME");
 	$User->add_column("gender", "CHAR(1)");
-	$User->add_column("last_active", "TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+	$User->add_column("last_active", "DATETIME");
 	// $User->add_column(); // Events posted
 	// $User->add_column(); // Groups
 	// $User->add_column(); // Location
@@ -58,7 +58,7 @@
 	$Group->add_column("PRIMARY KEY", "(group_id)");
 	// $Group->add_column("creator", "") // Group creator
 	$Group->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
-	$Group->add_column("last_active", "TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
+	$Group->add_column("last_active", "DATETIME");
 	// $Group->add_column(""); // Users in group
 	// $Group->add_column(""); // Itinerary (Events)
 	$Group->create_table();
