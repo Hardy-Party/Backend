@@ -61,10 +61,13 @@
 
 			print(nl2br($query . "\n"));
 
-			$result = mysql_query("SELECT * FROM somethingthatdoesntexist", $con);
-			echo $result;
+			$result = mysql_query("SELECT * FROM $this->title;", $con);
+			if ($result)
+			{
+				// Delete existing tables by this name
+				mysql_query("DROP TABLE $this->title;", $con) or die(mysql_eror());
+			}
 
-			die(sql_error());
 			// Execute command
 			mysql_query($query, $con) or die(mysql_error());
 		}
