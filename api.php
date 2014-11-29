@@ -6,11 +6,11 @@
      * These functions are used to handle interactions between mobile 
      * users and the database.
      *********************************************************************/
-    require_once("config.php");
+    require_once("db_connect.php");
 
     // For debugging only. Remove!!!
-    ini_set("display_errors", "on");
-    error_reporting(E_ALL | E_STRICT);
+//    ini_set("display_errors", "on");
+//    error_reporting(E_ALL | E_STRICT);
 
     // Return given whatever needs to be serialized as a json
     function returnJSON($data)
@@ -29,8 +29,12 @@
     // Return all events by given filter
     function getEvents(/* params */)
     {
-        $data = "getEvents called";
-        returnJSON($data);
+        $db = new DB_CONNECT();
+        $con = $db->connect();
+        $query = "SELECT * FROM Event;";
+        $data = mysql_query($query, $con) or die(mysql_error());
+        
+        returnJSON(mysql_fetch_array($data));
     }
 
     // Return all groups by given filter

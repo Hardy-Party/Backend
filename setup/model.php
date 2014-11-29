@@ -71,9 +71,6 @@
                 // Delete existing tables by this name
 				mysql_query("DROP TABLE $this->title;", $con) or die(mysql_error());
 
-                // Delete existing view
-//                mysql_query("DROP VIEW $this->title;", $con) or die(mysql_error());
-
                 // Re-enable foreign key constrain check
                 mysql_query("SET foreign_key_checks = 1;", $con) or die(mysql_error());
             }
