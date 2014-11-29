@@ -29,8 +29,7 @@
 
 	// Define Tag table
 	$Tag = new model("Tag");
-	$Tag->add_column("tag_id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT");
-	$Tag->add_column("val", "VARCHAR(32)");
+	$Tag->add_column("val", "VARCHAR(32) PRIMARY KEY");
 	$Tag->create_table();
 
 	// Define Event table
@@ -39,6 +38,8 @@
 	$Event->add_column("title", "VARCHAR(64) NOT NULL");
 	$Event->add_column("description", "VARCHAR(256) NOT NULL");
 	$Event->add_column("date_created", "TIMESTAMP DEFAULT CURRENT_TIMESTAMP");
+    $Event->add_column("creator_id", "INT NOT NULL");
+    $Event->add_column("FOREIGN KEY (creator_id)", "REFERENCES User(user_id)");
 	$Event->add_column("start_time", "DATETIME NOT NULL");
 	$Event->add_column("end_time", "DATETIME NOT NULL");
 	$Event->add_column("location", "SET('lat', 'long')");
@@ -54,20 +55,10 @@
     $Event_Tag = new model("Event_Tag");
     $Event_Tag->add_column("event_id", "INT NOT NULL");
     $Event_Tag->add_column("FOREIGN KEY (event_id)", "REFERENCES Event(event_id)");
-    $Event_Tag->add_column("tag_id", "INT NOT NULL");
-    $Event_Tag->add_column("FOREIGN KEY (tag_id)", "REFERENCES Tag(tag_id)");
-    $Event_Tag->add_column("PRIMARY", "KEY(event_id, tag_id)");
+    $Event_Tag->add_column("tag", "VARCHAR(32)");
+    $Event_Tag->add_column("FOREIGN KEY (tag)", "REFERENCES Tag(val)");
+    $Event_Tag->add_column("PRIMARY", "KEY(event_id, tag)");
     $Event_Tag->create_table();
-
-    // Define Event/Creator table
-    // Lists events and the person that created it
-    $Event_Creator = new model("Event_Creator");
-    $Event_Creator->add_column("event_id", "INT NOT NULL");
-    $Event_Creator->add_column("FOREIGN KEY (event_id)", "REFERENCES Event(event_id)");
-    $Event_Creator->add_column("creator_id", "INT NOT NULL");
-    $Event_Creator->add_column("FOREIGN KEY (creator_id)", "REFERENCES User(user_id)");
-    $Event_Creator->add_column("PRIMARY", "KEY(event_id)");
-    $Event_Creator->create_table();
 
     // Define Event/Attendee table
     // Lists the events and the people who are going to it
