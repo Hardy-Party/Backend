@@ -8,6 +8,9 @@
 	 * but IT SHOULD BE NOTED THAT RUNNING THIS SCRIPT WILL DELETE ANY
 	 * DATA IN THE DATABASE!!!!!
 	 ********************************************************************/
+	ini_set('display_errors', 'On');
+	error_reporting(E_ALL | E_STRICT);
+
 	require_once("model.php");
 
 	// Define User table
